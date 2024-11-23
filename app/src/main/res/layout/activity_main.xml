@@ -7,22 +7,22 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/lessonsButton"
+        android:id="@+id/detectionButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Уроки" />
+        android:text="Определение" />
 
     <Button
         android:id="@+id/quizzesButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Викторины" />
+        android:text="Викторина" />
 
     <Button
-        android:id="@+id/profileButton"
+        android:id="@+id/cardButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Профиль" />
+        android:text="Карточки" />
 
     <FrameLayout
         android:id="@+id/fragmentContainer"

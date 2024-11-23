@@ -3,11 +3,7 @@ package ry.tech.speedban;
 import android.os.Bundle;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,16 +13,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button lessonsButton = findViewById(R.id.lessonsButton);
+        Button detectionButton = findViewById(R.id.detectionButton);
         Button quizzesButton = findViewById(R.id.quizzesButton);
-        Button profileButton = findViewById(R.id.profileButton);
+        Button cardButton = findViewById(R.id.cardButton);
 
-        lessonsButton.setOnClickListener(view -> switchFragment(new LessonsFragment()));
+        detectionButton.setOnClickListener(view -> switchFragment(new DetectionFragment()));
         quizzesButton.setOnClickListener(view -> switchFragment(new QuizzesFragment()));
-        profileButton.setOnClickListener(view -> switchFragment(new ProfileFragment()));
+        cardButton.setOnClickListener(view -> switchFragment(new CardsFragment()));
 
         if (savedInstanceState == null) {
-            switchFragment(new LessonsFragment());
+            switchFragment(new DetectionFragment());
         }
     }
     private void switchFragment(Fragment fragment) {
