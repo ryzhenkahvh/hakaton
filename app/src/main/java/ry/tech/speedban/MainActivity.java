@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         quizzesButton.setOnClickListener(view -> switchFragment(new QuizzesFragment()));
         cardButton.setOnClickListener(view -> switchFragment(new CardsFragment()));
 
-        if (savedInstanceState == null) {
-            switchFragment(new DetectionFragment());
-        }
+//        if (savedInstanceState == null) {
+//            switchFragment(new DetectionFragment());  // а то фрагмент изначально показыватся на экране выбора игр
+//        }
     }
     private void switchFragment(Fragment fragment) {
         getSupportFragmentManager()
