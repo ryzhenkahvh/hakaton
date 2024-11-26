@@ -1,5 +1,6 @@
 package ry.tech.speedban;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,16 +44,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showGameOptions() {
-        // Получаем View для элемента "Игры" в BottomNavigationView
         View anchor = bottomNavigationView.findViewById(R.id.navigation_games);
 
         PopupMenu popupMenu = new PopupMenu(this, anchor);
-        popupMenu.getMenu().add("Определение").setOnMenuItemClickListener(menuItem -> {
+        popupMenu.getMenu().add("Определения").setOnMenuItemClickListener(menuItem -> {
             switchFragment(new DetectionFragment());
             return true;
         });
         popupMenu.getMenu().add("Викторина").setOnMenuItemClickListener(menuItem -> {
-            switchFragment(new QuizFragment());
+            startQuizTopicActivity(); // Запуск QuizTopicActivity
             return true;
         });
         popupMenu.getMenu().add("Карточки").setOnMenuItemClickListener(menuItem -> {
@@ -61,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
         });
         popupMenu.show();
     }
+
+    private void startQuizTopicActivity() {
+        Intent intent = new Intent(this, QuizTopicActivity.class);
+        startActivity(intent);
+    }
+
 
     private void switchFragment(Fragment fragment) {
         getSupportFragmentManager()

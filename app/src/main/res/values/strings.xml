@@ -6,4 +6,9 @@
     <string name="profile">Профиль</string>
     <string name="study">Учебник</string>
     <string name="games">Игры</string>
+
+
+    <string name="FLiteracy">Финансовая грамотность</string>
+    <string name="DLiteracy">Цифровая грамотность</string>
+    <string name="Cybersecurity">Кибербезопасность</string>
 </resources>
