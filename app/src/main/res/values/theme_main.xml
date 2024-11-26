@@ -5,7 +5,7 @@
         <!-- Customize your dark theme here.      -->
         <!--  <item name="colorPrimary">@color/my_dark_primary</item> -->
         <item name="colorPrimary">@color/pinky</item>
-        <item name="android:windowBackground">@color/windBackground</item>
+        <item name="android:windowBackground">@color/windBackground2</item>
         <item name="android:textColor">@color/pinky</item>
         <item name="textAllCaps">false</item>
         <item name="buttonStyle">@style/ButtonStyle.Night</item>

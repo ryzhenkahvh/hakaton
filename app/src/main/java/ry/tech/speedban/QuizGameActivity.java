@@ -93,7 +93,7 @@ public class QuizGameActivity extends AppCompatActivity {
                 buttonSubmit.setEnabled(false);
             }
         } else {
-            Toast.makeText(this, "Пожалуйста, выберите ответ.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Пожалуйста, выберите ответ!", Toast.LENGTH_SHORT).show();
         }
     }
 }
