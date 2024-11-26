@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="firelady">#6E958E</color>
+    <color name="pinky">#D4AEC8</color>
+    <color name="windBackground">#6E958E</color>
+    <color name="dockStroke">#F0C5FD</color>
+    <color name="dockGradientRight">#9272529B</color>
+    <color name="dockGradientLeft">#C34A716A</color>
+    <color name="btnPressedSolid">#92768A</color>
+    <color name="btnSolid">#96706176</color>
 </resources>
