@@ -1,32 +1,21 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/detectionButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Определение" />
-
-    <Button
-        android:id="@+id/quizzesButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Викторина" />
-
-    <Button
-        android:id="@+id/cardButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Карточки" />
 
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigationView" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</RelativeLayout>

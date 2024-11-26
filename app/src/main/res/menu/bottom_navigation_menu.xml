@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Профиль" />
+    <item
+        android:id="@+id/navigation_games"
+        android:icon="@drawable/ic_games"
+        android:title="Игры" />
+    <item
+        android:id="@+id/navigation_study"
+        android:icon="@drawable/ic_study"
+        android:title="Учебник" />
+</menu>

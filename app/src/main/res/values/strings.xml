@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SpeedBan</string>
+    <string name="detections">Определения</string>
 </resources>
