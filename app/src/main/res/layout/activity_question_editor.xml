@@ -1,0 +1,76 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/edit_topic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите название темы"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/edit_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите определение с пропуском"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/edit_correct_word"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите правильный ответ"
+            android:layout_marginTop="16dp"/>
+
+        <LinearLayout
+            android:id="@+id/layout_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/button_add_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Плюс"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_save_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Добавить вопрос"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:textAllCaps="false"/>
+
+        <TextView
+            android:id="@+id/text_message_editor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/button_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Завершить"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+</ScrollView>

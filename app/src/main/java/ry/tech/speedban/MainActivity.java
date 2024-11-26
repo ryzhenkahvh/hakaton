@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
         popupMenu.getMenu().add("Викторина").setOnMenuItemClickListener(menuItem -> {
-            startQuizTopicActivity(); // Запуск QuizTopicActivity
+            startQuizTopicActivity();
             return true;
         });
         popupMenu.getMenu().add("Карточки").setOnMenuItemClickListener(menuItem -> {
@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, QuizTopicActivity.class);
         startActivity(intent);
     }
-
 
     private void switchFragment(Fragment fragment) {
         getSupportFragmentManager()
