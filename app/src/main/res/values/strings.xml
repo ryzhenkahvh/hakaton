@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SpeedBan</string>
     <string name="detections">Определения</string>
+    <string name="card_game">Карточки</string>
+    <string name="quiz">Викторина</string>
+    <string name="profile">Профиль</string>
+    <string name="study">Учебник</string>
+    <string name="games">Игры</string>
 </resources>
