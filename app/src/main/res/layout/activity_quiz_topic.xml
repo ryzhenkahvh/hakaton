@@ -10,29 +10,29 @@
         android:background="@drawable/ic_back"
         android:layout_margin="10dp"/>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/button_finance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/FLiteracy" />
+        <Button
+            android:id="@+id/button_finance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/FLiteracy" />
 
-    <Button
-        android:id="@+id/button_digital"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/DLiteracy" />
+        <Button
+            android:id="@+id/button_digital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/DLiteracy" />
 
-    <Button
-        android:id="@+id/button_cybersecurity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Cybersecurity" />
-</LinearLayout>
+        <Button
+            android:id="@+id/button_cybersecurity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Cybersecurity" />
+    </LinearLayout>
 </LinearLayout>

@@ -23,21 +23,21 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(this::onNavigationItemSelected);
 
         if (savedInstanceState == null) {
-            switchFragment(new ProfileFragment());
+            switchFragment(new StudyFragment());
         }
     }
 
     private boolean onNavigationItemSelected(@NonNull MenuItem item) {
         String itemName = (String) item.getTitle();
         switch (itemName) {
-            case "Профиль":
-                switchFragment(new ProfileFragment());
+            case "Учебник":
+                switchFragment(new StudyFragment());
                 return true;
             case "Игры":
                 showGameOptions();
                 return true;
-            case "Учебник":
-                switchFragment(new StudyFragment());
+            case "Профиль":
+                switchFragment(new ProfileFragment());
                 return true;
         }
         return false;
