@@ -29,6 +29,15 @@
             android:hint="Введите правильный ответ"
             android:layout_marginTop="16dp"/>
 
+        <TextView
+            android:id="@+id/text_message_editor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"/>
+
         <LinearLayout
             android:id="@+id/layout_options"
             android:layout_width="match_parent"
@@ -40,37 +49,25 @@
                 android:id="@+id/button_add_option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Плюс"
+                android:text="Добавить вариант ответа"
                 android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:textAllCaps="false"/>
+                android:layout_marginTop="8dp"/>
         </LinearLayout>
 
         <Button
             android:id="@+id/button_save_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Добавить вопрос"
+            android:text="Сохранить"
             android:layout_gravity="center"
-            android:layout_marginTop="24dp"
-            android:textAllCaps="false"/>
-
-        <TextView
-            android:id="@+id/text_message_editor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="16sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="24dp"/>
 
         <Button
             android:id="@+id/button_finish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Завершить"
+            android:text="Выйти"
             android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:textAllCaps="false"/>
+            android:layout_marginTop="16dp"/>
     </LinearLayout>
 </ScrollView>

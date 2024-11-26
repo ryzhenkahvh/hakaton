@@ -16,6 +16,5 @@
         android:layout_height="wrap_content"
         android:text="Добавить тему"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:textAllCaps="false"/>
+        android:layout_marginTop="16dp"/>
 </LinearLayout>
