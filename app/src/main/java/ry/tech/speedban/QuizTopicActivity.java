@@ -53,6 +53,7 @@ public class QuizTopicActivity extends AppCompatActivity {
             startQuizGame(selectedTopic);
         });
 
+        // Удаление тем
         listTopics.setOnItemLongClickListener((parent, view, position, id) -> {
             String selectedTopic = topics.get(position);
             new AlertDialog.Builder(this)
