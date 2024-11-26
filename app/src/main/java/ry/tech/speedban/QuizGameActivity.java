@@ -81,19 +81,19 @@ public class QuizGameActivity extends AppCompatActivity {
             String correctAnswer = questions.get(currentQuestionIndex).getCorrectAnswer();
 
             if (selectedAnswer.equals(correctAnswer)) {
-                textViewFeedback.setText("Правильно!");
+                textViewFeedback.setText("Верно!");
             } else {
-                textViewFeedback.setText("Неправильно. Правильный ответ: " + correctAnswer);
+                textViewFeedback.setText("Неправильно.\nПравильный ответ: " + "'" + correctAnswer + "'.");
             }
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.size()) {
                 displayQuestion(questions.get(currentQuestionIndex));
             } else {
-                textViewFeedback.append("\nВы прошли все вопросы!");
+                textViewFeedback.append("\nВопросы закончились.");
                 buttonSubmit.setEnabled(false);
             }
         } else {
-            Toast.makeText(this, "Пожалуйста, выберите ответ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Пожалуйста, выберите ответ.", Toast.LENGTH_SHORT).show();
         }
     }
 }
