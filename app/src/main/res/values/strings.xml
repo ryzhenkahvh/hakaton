@@ -3,7 +3,7 @@
 
     <string name="detections">Определения</string>
     <string name="card_game">Карточки</string>
-    <string name="quiz">Викторина</string>
+    <string name="quiz">Опрос</string>
     <string name="profile">Профиль</string>
     <string name="study">Учебник</string>
     <string name="games">Игры</string>
@@ -17,4 +17,19 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Финансовая грамотность -->
+    <!-- Термины -->
+    <string name="term_1">Деньги</string>
+    <string name="term_2">Кредит</string>
+    <!-- Определения -->
+    <string name="definition_1">Эквивалент, который является измерителем стоимости товара или услуги</string>
+    <string name="definition_2">Деньги, которые вы берёте в долг у банка и возвращаете их обратно с процентами</string>
+
+    <!-- Цифровая грамотность -->
+    <!-- Термины -->
+    <!-- Определения -->
+
+    <!-- Кибербезопасность -->
+    <!-- Термины -->
+    <!-- Определения -->
 </resources>
