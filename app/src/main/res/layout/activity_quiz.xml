@@ -1,8 +1,12 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detections"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/text_topic"
@@ -11,5 +15,37 @@
         android:textSize="18sp"
         android:text="Тема: " />
 
-    <!-- Элементы интерфейса для вопросов и ответов -->
-</LinearLayout>
+    <Button
+        android:id="@+id/topic_1"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:text="@string/theme1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.405" />
+
+    <Button
+        android:id="@+id/topic_2"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/theme2"
+        app:layout_constraintEnd_toEndOf="@+id/topic_1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/topic_1"
+        app:layout_constraintTop_toBottomOf="@+id/topic_1" />
+
+    <Button
+        android:id="@+id/topic_3"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/theme3"
+        app:layout_constraintEnd_toEndOf="@+id/topic_2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/topic_2"
+        app:layout_constraintTop_toBottomOf="@+id/topic_2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
