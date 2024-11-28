@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'ry.tech.speedban'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "ry.tech.speedban"
         minSdk 27
-        targetSdk 34
+        targetSdk 35
         versionCode 1
         versionName "development 0.3"
 
