@@ -1,5 +1,8 @@
 package ry.tech.speedban;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.GridLayout;
@@ -8,6 +11,8 @@ import java.util.List;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
 import android.util.TypedValue;
+import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 
 public class CardGameActivity extends AppCompatActivity {
 
@@ -43,12 +48,40 @@ public class CardGameActivity extends AppCompatActivity {
             params.setMargins(marginInDp, marginInDp, marginInDp, marginInDp);
             cardButton.setLayoutParams(params);
 
-            cardButton.setOnClickListener(v -> {
-                card.flip();
-                cardButton.setText(card.isFlipped() ? card.getText() : "");
-            });
+            cardButton.setOnClickListener(v -> flipCard(card, cardButton, backgroundResource));
 
             gridLayout.addView(cardButton);
         }
+    }
+
+    private void flipCard(Card card, Button cardButton, int unflippedBackgroundResource) {
+        AnimatorSet flipOut = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.flip_out);
+        AnimatorSet flipIn = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.flip_in);
+
+        flipOut.setTarget(cardButton);
+        flipIn.setTarget(cardButton);
+
+        flipOut.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {}
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                card.flip();
+                // Обновляем текст и фон в середине анимации
+                int newBackgroundResource = card.isFlipped() ? R.drawable.card_flipped_background : unflippedBackgroundResource;
+                cardButton.setBackground(getDrawable(newBackgroundResource));
+                cardButton.setText(card.isFlipped() ? card.getText() : "");
+                flipIn.start();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {}
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {}
+        });
+
+        flipOut.start();
     }
 }
