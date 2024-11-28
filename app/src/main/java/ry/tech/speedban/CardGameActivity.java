@@ -204,4 +204,5 @@ public class CardGameActivity extends AppCompatActivity {
         mainMenuButton.setVisibility(View.VISIBLE);
         mainMenuButton.setOnClickListener(v -> finish());
     }
+    // Готово
 }

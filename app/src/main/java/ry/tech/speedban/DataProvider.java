@@ -33,4 +33,5 @@ public class DataProvider {
         }
         return terms;
     }
+    // Готово
 }
