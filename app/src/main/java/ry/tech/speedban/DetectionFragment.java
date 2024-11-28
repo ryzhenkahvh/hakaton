@@ -26,7 +26,7 @@ public class DetectionFragment extends Fragment {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String topic1 = getString(R.string.theme1);
+                String topic1 = getString(R.string.FLiteracy);
                 openDetectionsActivity(topic1);
             }
         });
@@ -34,7 +34,7 @@ public class DetectionFragment extends Fragment {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String topic2 = getString(R.string.theme2);
+                String topic2 = getString(R.string.DLiteracy);
                 openDetectionsActivity(topic2);
             }
         });
@@ -42,11 +42,10 @@ public class DetectionFragment extends Fragment {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String topic3 = getString(R.string.theme3);
+                String topic3 = getString(R.string.Cybersecurity);
                 openDetectionsActivity(topic3);
             }
         });
-
 
         return view;
     }
