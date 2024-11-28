@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.SpeedBanMain" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your dark theme here.      -->
+        <!--  <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/pinky</item>
+        <item name="android:windowBackground">@color/windBackground2</item>
+        <item name="android:textColor">@color/pinky</item>
+        <item name="textAllCaps">false</item>
+        <item name="buttonStyle">@style/ButtonStyle.Night</item>
+    </style>
+
+    <style name="ButtonStyle.Night" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_selector</item>
+        <item name="android:padding">7dp</item>
+    </style>
+</resources>

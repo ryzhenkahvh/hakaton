@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">SpeedBan</string>
+
+    <string name="detections">Определения</string>
+    <string name="card_game">Карточки</string>
+    <string name="quiz">Викторина</string>
+    <string name="profile">Профиль</string>
+    <string name="study">Учебник</string>
+    <string name="games">Игры</string>
+
+
+    <string name="FLiteracy">Финансовая грамотность</string>
+    <string name="DLiteracy">Цифровая грамотность</string>
+    <string name="Cybersecurity">Кибербезопасность</string>
+
+    <string name="theme1">topic_1</string>
+    <string name="theme2">topic_2</string>
+    <string name="theme3">topic_3</string>
+
+
 </resources>
