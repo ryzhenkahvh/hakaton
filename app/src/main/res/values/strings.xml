@@ -20,20 +20,18 @@
     <string name="theme_default">дефолт</string>
 
     <!-- Финансовая грамотность -->
-    <string name="financial_definition_1">Определение Финансов 1</string>
-    <string name="financial_definition_2">Определение Финансов 2</string>
-    <string name="financial_term_1">Термин Финансов 1</string>
-    <string name="financial_term_2">Термин Финансов 2</string>
+    <!-- Термины -->
+    <string name="term_1">Деньги</string>
+    <string name="term_2">Кредит</string>
+    <!-- Определения -->
+    <string name="definition_1">Эквивалент, который является измерителем стоимости товара или услуги</string>
+    <string name="definition_2">Деньги, которые вы берёте в долг у банка и возвращаете их обратно с процентами</string>
 
     <!-- Цифровая грамотность -->
-    <string name="digital_definition_1">Определение Цифровое 1</string>
-    <string name="digital_definition_2">Определение Цифровое 2</string>
-    <string name="digital_term_1">Термин Цифровое 1</string>
-    <string name="digital_term_2">Термин Цифровое 2</string>
+    <!-- Термины -->
+    <!-- Определения -->
 
     <!-- Кибербезопасность -->
-    <string name="cybersecurity_definition_1">Определение Кибербезопасность 1</string>
-    <string name="cybersecurity_definition_2">Определение Кибербезопасность 2</string>
-    <string name="cybersecurity_term_1">Термин Кибербезопасность 1</string>
-    <string name="cybersecurity_term_2">Термин Кибербезопасность 2</string>
+    <!-- Термины -->
+    <!-- Определения -->
 </resources>

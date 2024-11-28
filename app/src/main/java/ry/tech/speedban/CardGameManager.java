@@ -16,6 +16,7 @@ public class CardGameManager {
     private void initializeCards(Context context, String topic) {
         definitions = DataProvider.getDefinitions(context, topic);
         terms = DataProvider.getTerms(context, topic);
+
         Collections.shuffle(definitions);
         Collections.shuffle(terms);
     }
@@ -28,7 +29,7 @@ public class CardGameManager {
         return terms;
     }
 
-    public boolean checkMatch(Card definition, Card term) {
-        return definition.getText().equals(term.getText());
+    public boolean checkMatch(Card termCard, Card definitionCard) {
+        return termCard.getId() == definitionCard.getId();
     }
 }

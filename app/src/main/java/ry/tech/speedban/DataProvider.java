@@ -10,17 +10,10 @@ public class DataProvider {
         List<Card> definitions = new ArrayList<>();
         switch (topic) {
             case "financial":
-                definitions.add(new Card(context.getString(R.string.financial_definition_1)));
-                definitions.add(new Card(context.getString(R.string.financial_definition_2)));
+                definitions.add(new Card(context.getString(R.string.definition_1), 1));
+                definitions.add(new Card(context.getString(R.string.definition_2), 2));
                 break;
-            case "digital":
-                definitions.add(new Card(context.getString(R.string.digital_definition_1)));
-                definitions.add(new Card(context.getString(R.string.digital_definition_2)));
-                break;
-            case "cybersecurity":
-                definitions.add(new Card(context.getString(R.string.cybersecurity_definition_1)));
-                definitions.add(new Card(context.getString(R.string.cybersecurity_definition_2)));
-                break;
+            // Другие темы
         }
         return definitions;
     }
@@ -29,17 +22,10 @@ public class DataProvider {
         List<Card> terms = new ArrayList<>();
         switch (topic) {
             case "financial":
-                terms.add(new Card(context.getString(R.string.financial_term_1)));
-                terms.add(new Card(context.getString(R.string.financial_term_2)));
+                terms.add(new Card(context.getString(R.string.term_1), 1));
+                terms.add(new Card(context.getString(R.string.term_2), 2));
                 break;
-            case "digital":
-                terms.add(new Card(context.getString(R.string.digital_term_1)));
-                terms.add(new Card(context.getString(R.string.digital_term_2)));
-                break;
-            case "cybersecurity":
-                terms.add(new Card(context.getString(R.string.cybersecurity_term_1)));
-                terms.add(new Card(context.getString(R.string.cybersecurity_term_2)));
-                break;
+            // Другие темы
         }
         return terms;
     }
