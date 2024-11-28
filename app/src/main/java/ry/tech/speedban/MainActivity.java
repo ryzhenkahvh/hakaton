@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             switchFragment(new DetectionFragment());
             return true;
         });
-        popupMenu.getMenu().add("Викторина").setOnMenuItemClickListener(menuItem -> {
+        popupMenu.getMenu().add("Опрос").setOnMenuItemClickListener(menuItem -> {
             startQuizTopicActivity();
             return true;
         });
