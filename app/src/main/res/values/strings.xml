@@ -19,19 +19,34 @@
 
     <string name="theme_default">дефолт</string>
 
-    <!-- Финансовая грамотность -->
-    <!-- Термины -->
-    <string name="term_1">Деньги</string>
-    <string name="term_2">Кредит</string>
-    <!-- Определения -->
-    <string name="definition_1">Эквивалент, который является измерителем стоимости товара или услуги</string>
-    <string name="definition_2">Деньги, которые вы берёте в долг у банка и возвращаете их обратно с процентами</string>
+        <!-- Финансовая грамотность -->
+        <!-- Термины -->
+        <string name="financial_term_1">Деньги</string>
+        <string name="financial_term_2">Кредит</string>
+        <string name="financial_term_3">Бюджет</string>
+        <!-- Определения -->
+        <string name="financial_definition_1">Эквивалент, который является измерителем стоимости товара или услуги</string>
+        <string name="financial_definition_2">Деньги, которые вы берёте в долг у банка и возвращаете их обратно с процентами</string>
+        <string name="financial_definition_3">План доходов и расходов на определённый период</string>
 
-    <!-- Цифровая грамотность -->
-    <!-- Термины -->
-    <!-- Определения -->
+        <!-- Цифровая грамотность -->
+        <!-- Термины -->
+        <string name="digital_term_1">Интернет</string>
+        <string name="digital_term_2">Компьютер</string>
+        <string name="digital_term_3">Социальные сети</string>
+        <!-- Определения -->
+        <string name="digital_definition_1">Всемирная сеть для обмена информацией</string>
+        <string name="digital_definition_2">Электронное устройство для обработки данных</string>
+        <string name="digital_definition_3">Онлайн-платформы для общения и обмена информацией</string>
 
-    <!-- Кибербезопасность -->
-    <!-- Термины -->
-    <!-- Определения -->
+        <!-- Кибербезопасность -->
+        <!-- Термины -->
+        <string name="cybersecurity_term_1">Антивирус</string>
+        <string name="cybersecurity_term_2">Фишинг</string>
+        <string name="cybersecurity_term_3">Хакер</string>
+        <!-- Определения -->
+        <string name="cybersecurity_definition_1">Программа для защиты от вирусов</string>
+        <string name="cybersecurity_definition_2">Мошенническая попытка получить конфиденциальную информацию</string>
+        <string name="cybersecurity_definition_3">Специалист, который пытается получить несанкционированный доступ к системам</string>
+
 </resources>

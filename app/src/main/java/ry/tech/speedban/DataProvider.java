@@ -8,24 +8,28 @@ public class DataProvider {
 
     public static List<Card> getDefinitions(Context context, String topic) {
         List<Card> definitions = new ArrayList<>();
-        switch (topic) {
-            case "financial":
-                definitions.add(new Card(context.getString(R.string.definition_1), 1));
-                definitions.add(new Card(context.getString(R.string.definition_2), 2));
+        int i = 1;
+        while (true) {
+            int resId = context.getResources().getIdentifier(topic + "_definition_" + i, "string", context.getPackageName());
+            if (resId == 0) {
                 break;
-            // Другие темы
+            }
+            definitions.add(new Card(context.getString(resId), i));
+            i++;
         }
         return definitions;
     }
 
     public static List<Card> getTerms(Context context, String topic) {
         List<Card> terms = new ArrayList<>();
-        switch (topic) {
-            case "financial":
-                terms.add(new Card(context.getString(R.string.term_1), 1));
-                terms.add(new Card(context.getString(R.string.term_2), 2));
+        int i = 1;
+        while (true) {
+            int resId = context.getResources().getIdentifier(topic + "_term_" + i, "string", context.getPackageName());
+            if (resId == 0) {
                 break;
-            // Другие темы
+            }
+            terms.add(new Card(context.getString(resId), i));
+            i++;
         }
         return terms;
     }

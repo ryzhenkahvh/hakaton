@@ -7,20 +7,21 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.GridLayout;
 import android.widget.Button;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import android.os.Handler;
 import android.util.TypedValue;
 import android.view.View;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 public class CardGameActivity extends AppCompatActivity {
-
-    private CardGameManager cardGameManager;
     private List<Card> flippedCards = new ArrayList<>();
     private List<Button> flippedButtons = new ArrayList<>();
     private Handler handler = new Handler();
+    private GridLayout definitionsGridLayout;
+    private GridLayout termsGridLayout;
+    private int currentLevel = 2; // Начальный уровень
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +35,27 @@ public class CardGameActivity extends AppCompatActivity {
             return;
         }
 
-        cardGameManager = new CardGameManager(this, 1, selectedTopic);
+        definitionsGridLayout = findViewById(R.id.definitionsGridLayout);
+        termsGridLayout = findViewById(R.id.termsGridLayout);
 
-        GridLayout definitionsGridLayout = findViewById(R.id.definitionsGridLayout);
-        GridLayout termsGridLayout = findViewById(R.id.termsGridLayout);
+        List<Card> definitions = DataProvider.getDefinitions(this, selectedTopic);
+        List<Card> terms = DataProvider.getTerms(this, selectedTopic);
 
-        addCardsToGridLayout(definitionsGridLayout, cardGameManager.getDefinitions(), R.drawable.card_definition_background, "definition");
-        addCardsToGridLayout(termsGridLayout, cardGameManager.getTerms(), R.drawable.card_term_background, "term");
+        setupLevel(definitions, terms);
+    }
+
+    private void setupLevel(List<Card> definitions, List<Card> terms) {
+        definitionsGridLayout.removeAllViews();
+        termsGridLayout.removeAllViews();
+
+        if (definitions.size() < currentLevel || terms.size() < currentLevel) {
+            showMainMenuButton();
+            return;
+        }
+
+        // Добавляем карты на уровень
+        addCardsToGridLayout(definitionsGridLayout, definitions.subList(0, Math.min(currentLevel, definitions.size())), R.drawable.card_definition_background, "definition");
+        addCardsToGridLayout(termsGridLayout, terms.subList(0, Math.min(currentLevel, terms.size())), R.drawable.card_term_background, "term");
     }
 
     private void addCardsToGridLayout(GridLayout gridLayout, List<Card> cards, int backgroundResource, String tag) {
@@ -48,7 +63,7 @@ public class CardGameActivity extends AppCompatActivity {
             Button cardButton = new Button(this);
             cardButton.setText("");
             cardButton.setBackground(getDrawable(backgroundResource));
-            cardButton.setTag(tag);  // Устанавливаем тег для кнопки
+            cardButton.setTag(tag);
 
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             params.width = 300;
@@ -80,9 +95,16 @@ public class CardGameActivity extends AppCompatActivity {
                     Card firstCard = flippedCards.get(0);
                     Card secondCard = flippedCards.get(1);
 
-                    if (firstCard != null && secondCard != null && isMatchingPair(firstCard, secondCard)) {
+                    if (firstCard != null && secondCard != null && firstCard.getId() == secondCard.getId()) {
                         setCorrectBackground(flippedButtons.get(0));
                         setCorrectBackground(flippedButtons.get(1));
+
+                        // Проверка на окончание уровня
+                        if (allCardsMatched()) {
+                            currentLevel += 1; // Увеличиваем количество карт
+                            setupLevel(DataProvider.getDefinitions(this, getIntent().getStringExtra("selectedTopic")),
+                                    DataProvider.getTerms(this, getIntent().getStringExtra("selectedTopic")));
+                        }
                     } else {
                         resetCard(firstCard, flippedButtons.get(0), (String) flippedButtons.get(0).getTag());
                         resetCard(secondCard, flippedButtons.get(1), (String) flippedButtons.get(1).getTag());
@@ -93,8 +115,23 @@ public class CardGameActivity extends AppCompatActivity {
             }, 1300);
         }
     }
-    private boolean isMatchingPair(Card firstCard, Card secondCard) {
-        return cardGameManager.checkMatch(firstCard, secondCard);
+
+    private boolean allCardsMatched() {
+        for (int i = 0; i < definitionsGridLayout.getChildCount(); i++) {
+            Button button = (Button) definitionsGridLayout.getChildAt(i);
+            if (!button.getBackground().getConstantState().equals(getDrawable(R.drawable.card_correct_background).getConstantState())) {
+                return false;
+            }
+        }
+
+        for (int i = 0; i < termsGridLayout.getChildCount(); i++) {
+            Button button = (Button) termsGridLayout.getChildAt(i);
+            if (!button.getBackground().getConstantState().equals(getDrawable(R.drawable.card_correct_background).getConstantState())) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private void flipCard(Card card, Button cardButton) {
@@ -159,5 +196,12 @@ public class CardGameActivity extends AppCompatActivity {
 
     private void setCorrectBackground(Button button) {
         button.setBackground(getDrawable(R.drawable.card_correct_background));
+    }
+
+    private void showMainMenuButton() {
+        // Показываем кнопку, когда все уровни завершены
+        Button mainMenuButton = findViewById(R.id.mainMenuButton);
+        mainMenuButton.setVisibility(View.VISIBLE);
+        mainMenuButton.setOnClickListener(v -> finish());
     }
 }
