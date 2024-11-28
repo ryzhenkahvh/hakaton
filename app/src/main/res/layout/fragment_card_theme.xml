@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/detections"
+        android:text="@string/card_game"
         android:textAllCaps="false"
         android:textSize="24sp"
         android:textStyle="bold"

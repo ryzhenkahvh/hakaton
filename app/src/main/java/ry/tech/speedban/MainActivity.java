@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
         popupMenu.getMenu().add("Карточки").setOnMenuItemClickListener(menuItem -> {
-            switchFragment(new CardGameFragment());
+            switchFragment(new ChooseTopicFragment());
             return true;
         });
         popupMenu.show();
