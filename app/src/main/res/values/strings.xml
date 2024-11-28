@@ -13,11 +13,9 @@
     <string name="DLiteracy">Цифровая грамотность</string>
     <string name="Cybersecurity">Кибербезопасность</string>
 
-    <string name="theme1">topic_1</string>
-    <string name="theme2">topic_2</string>
-    <string name="theme3">topic_3</string>
-
     <string name="theme_default">дефолт</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
         <!-- Финансовая грамотность -->
         <!-- Термины -->
