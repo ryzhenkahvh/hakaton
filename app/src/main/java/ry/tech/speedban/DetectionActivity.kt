@@ -16,5 +16,12 @@ class DetectionActivity : AppCompatActivity() {
         bindingClass = ActivityDetectionBinding.inflate(layoutInflater)
         setContentView(bindingClass.root)
 
+        val theme = intent.getStringExtra("theme") ?: getString(R.string.theme_default)
+        bindingClass.tvDetections.text = theme
     }
+
+
+
+
+
 }
