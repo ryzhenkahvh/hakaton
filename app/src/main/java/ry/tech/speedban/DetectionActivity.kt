@@ -5,11 +5,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.FragmentManager
 import ry.tech.speedban.databinding.ActivityDetectionBinding
 
 
 class DetectionActivity : AppCompatActivity() {
+
     lateinit var bindingClass: ActivityDetectionBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -18,10 +21,17 @@ class DetectionActivity : AppCompatActivity() {
 
         val theme = intent.getStringExtra("theme") ?: getString(R.string.theme_default)
         bindingClass.tvDetections.text = theme
+
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.detectionFrame, Kotlin_Fragment())
+                .commit()
+        }
     }
 
-
-
-
+    override fun getSupportFragmentManager(): FragmentManager {
+        return super.getSupportFragmentManager()
+    }
 
 }
