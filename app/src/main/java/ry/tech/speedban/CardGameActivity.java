@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.GridLayout;
 import android.widget.Button;
+import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -14,8 +15,10 @@ import android.os.Handler;
 import android.util.TypedValue;
 import android.view.View;
 import android.util.Log;
+import androidx.core.content.ContextCompat;
 
 public class CardGameActivity extends AppCompatActivity {
+
     private List<Card> flippedCards = new ArrayList<>();
     private List<Button> flippedButtons = new ArrayList<>();
     private Handler handler = new Handler();
@@ -50,8 +53,11 @@ public class CardGameActivity extends AppCompatActivity {
 
         if (definitions.size() < currentLevel || terms.size() < currentLevel) {
             showMainMenuButton();
+            Toast.makeText(this, "Игра окончена! Все уровни пройдены.", Toast.LENGTH_LONG).show();
             return;
         }
+
+        Toast.makeText(this, "Уровень " + (currentLevel - 1), Toast.LENGTH_SHORT).show();
 
         // Добавляем карты на уровень
         addCardsToGridLayout(definitionsGridLayout, definitions.subList(0, Math.min(currentLevel, definitions.size())), R.drawable.card_definition_background, "definition");
@@ -65,6 +71,8 @@ public class CardGameActivity extends AppCompatActivity {
             cardButton.setBackground(getDrawable(backgroundResource));
             cardButton.setTag(tag);
 
+            cardButton.setTextColor(ContextCompat.getColor(this, R.color.card_text_color)); // Изменение цвета текста
+
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             params.width = 300;
             params.height = 400;
@@ -72,7 +80,6 @@ public class CardGameActivity extends AppCompatActivity {
                     TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics());
             params.setMargins(marginInDp, marginInDp, marginInDp, marginInDp);
             cardButton.setLayoutParams(params);
-
             cardButton.setOnClickListener(v -> handleCardFlip(card, cardButton, backgroundResource));
 
             gridLayout.addView(cardButton);
@@ -171,7 +178,6 @@ public class CardGameActivity extends AppCompatActivity {
         flipIn.setTarget(cardButton);
 
         int backgroundResource = tag.equals("definition") ? R.drawable.card_definition_background : R.drawable.card_term_background;
-
         flipOut.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {}
@@ -204,5 +210,4 @@ public class CardGameActivity extends AppCompatActivity {
         mainMenuButton.setVisibility(View.VISIBLE);
         mainMenuButton.setOnClickListener(v -> finish());
     }
-    // Готово
 }

@@ -15,4 +15,5 @@
     <color name="cardRed">#d9542b</color>
     <color name="cardStroke">#ad9e66</color>
     <color name="trueCard">#a4e675</color>
+    <color name="card_text_color">#42372f</color>
 </resources>
