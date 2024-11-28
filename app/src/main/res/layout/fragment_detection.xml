@@ -8,17 +8,6 @@
     android:padding="16dp"
     android:gravity="center">
 
-    <TextView
-        android:id="@+id/text_topic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Тема: "
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/topic_1"
         android:layout_width="360dp"
