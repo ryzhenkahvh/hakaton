@@ -6,30 +6,34 @@ import java.util.Collections;
 import java.util.List;
 
 public class CardGameManager {
-    private List<Card> definitions;
-    private List<Card> terms;
+    private List<Card> allCards; // Общий список для всех карточек
 
     public CardGameManager(Context context, int level, String topic) {
-        initializeCards(context, topic);
+        initializeCards(context, topic, level);
     }
 
-    private void initializeCards(Context context, String topic) {
-        definitions = DataProvider.getDefinitions(context, topic);
-        terms = DataProvider.getTerms(context, topic);
+    private void initializeCards(Context context, String topic, int level) {
+        List<Card> definitions = DataProvider.getDefinitions(context, topic);
+        List<Card> terms = DataProvider.getTerms(context, topic);
 
-        Collections.shuffle(definitions);
-        Collections.shuffle(terms);
+        // Обрезаем списки до текущего уровня
+        definitions = definitions.subList(0, Math.min(level, definitions.size()));
+        terms = terms.subList(0, Math.min(level, terms.size()));
+
+        // Создаем общий список карточек
+        allCards = new ArrayList<>();
+        allCards.addAll(definitions);
+        allCards.addAll(terms);
+
+        // Перемешиваем общий список карточек
+        Collections.shuffle(allCards);
     }
 
-    public List<Card> getDefinitions() {
-        return definitions;
+    public List<Card> getAllCards() {
+        return allCards;
     }
 
-    public List<Card> getTerms() {
-        return terms;
-    }
-
-    public boolean checkMatch(Card termCard, Card definitionCard) {
-        return termCard.getId() == definitionCard.getId();
+    public boolean checkMatch(Card firstCard, Card secondCard) {
+        return firstCard.getId() == secondCard.getId();
     }
 }
