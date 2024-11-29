@@ -14,6 +14,9 @@ class Kotlin_Fragment : Fragment() {
     private var _binding: FragmentKtBinding? = null
     private val binding get() = _binding!!
 
+    private var selectedWord: String? = null
+    private var correctMatches: Map<String, String> = emptyMap()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,6 +26,14 @@ class Kotlin_Fragment : Fragment() {
 
         val theme = arguments?.getString("theme") ?: "default"
         setupGame(theme)
+
+        binding.bt1.setOnClickListener { onWordClick(binding.bt1.text.toString()) }
+        binding.bt2.setOnClickListener { onWordClick(binding.bt2.text.toString()) }
+        binding.bt3.setOnClickListener { onWordClick(binding.bt3.text.toString()) }
+
+        binding.btDefinition1.setOnClickListener { onDefinitionClick(binding.btDefinition1.text.toString()) }
+        binding.btDefinition2.setOnClickListener { onDefinitionClick(binding.btDefinition2.text.toString()) }
+        binding.btDefinition3.setOnClickListener { onDefinitionClick(binding.btDefinition3.text.toString()) }
 
         return view
     }
@@ -42,6 +53,11 @@ class Kotlin_Fragment : Fragment() {
                         getString(R.string.financial_definition_3)
                     )
                 )
+                correctMatches = mapOf(
+                    getString(R.string.financial_term_1) to getString(R.string.financial_definition_1),
+                    getString(R.string.financial_term_2) to getString(R.string.financial_definition_2),
+                    getString(R.string.financial_term_3) to getString(R.string.financial_definition_3)
+                )
             }
             getString(R.string.DLiteracy) -> {
                 setButtons(
@@ -56,6 +72,11 @@ class Kotlin_Fragment : Fragment() {
                         getString(R.string.digital_definition_3)
                     )
                 )
+                correctMatches = mapOf(
+                    getString(R.string.digital_term_1) to getString(R.string.digital_definition_1),
+                    getString(R.string.digital_term_2) to getString(R.string.digital_definition_2),
+                    getString(R.string.digital_term_3) to getString(R.string.digital_definition_3)
+                )
             }
             getString(R.string.Cybersecurity) -> {
                 setButtons(
@@ -69,6 +90,11 @@ class Kotlin_Fragment : Fragment() {
                         getString(R.string.cybersecurity_definition_2),
                         getString(R.string.cybersecurity_definition_3)
                     )
+                )
+                correctMatches = mapOf(
+                    getString(R.string.cybersecurity_term_1) to getString(R.string.cybersecurity_definition_1),
+                    getString(R.string.cybersecurity_term_2) to getString(R.string.cybersecurity_definition_2),
+                    getString(R.string.cybersecurity_term_3) to getString(R.string.cybersecurity_definition_3)
                 )
             }
             else -> {
@@ -85,6 +111,25 @@ class Kotlin_Fragment : Fragment() {
         binding.btDefinition1.text = definitions[0]
         binding.btDefinition2.text = definitions[1]
         binding.btDefinition3.text = definitions[2]
+    }
+
+    private fun onWordClick(word: String) {
+        selectedWord = word
+        Toast.makeText(context, "Вы выбрали слово: $word", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun onDefinitionClick(definition: String) {
+        val word = selectedWord
+        if (word != null) {
+            if (correctMatches[word] == definition) {
+                Toast.makeText(context, "Правильно!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "Неправильно!", Toast.LENGTH_SHORT).show()
+            }
+            selectedWord = null
+        } else {
+            Toast.makeText(context, "Выберите слово сначала", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onDestroyView() {
