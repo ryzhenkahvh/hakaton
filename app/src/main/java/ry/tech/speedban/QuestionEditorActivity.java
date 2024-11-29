@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,12 +35,20 @@ public class QuestionEditorActivity extends AppCompatActivity {
         buttonAddOption = findViewById(R.id.button_add_option);
         Button buttonSaveQuestion = findViewById(R.id.button_save_question);
         Button buttonFinish = findViewById(R.id.button_finish);
+        ImageButton btnBack = findViewById(R.id.btnBack);
 
         questions = new ArrayList<>();
 
         buttonAddOption.setOnClickListener(v -> addOptionField());
         buttonSaveQuestion.setOnClickListener(v -> saveQuestion());
         buttonFinish.setOnClickListener(v -> finishEditing());
+
+        // Обработчик нажатия для кнопки возврата в QuizTopicActivity
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(QuestionEditorActivity.this, QuizTopicActivity.class);
+            startActivity(intent);
+            finish();
+        });
     }
 
     private void addOptionField() {
@@ -79,7 +88,6 @@ public class QuestionEditorActivity extends AppCompatActivity {
             textMessageEditor.setText("Пожалуйста, заполните все поля и добавьте минимум один вариант.");
         }
     }
-
     private void finishEditing() {
         String topic = editTopic.getText().toString().trim();
         if (!topic.isEmpty() && !questions.isEmpty()) {

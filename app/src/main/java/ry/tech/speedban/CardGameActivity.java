@@ -4,9 +4,9 @@ import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.widget.GridLayout;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.util.TypedValue;
 import android.view.View;
 import android.util.Log;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 public class CardGameActivity extends AppCompatActivity {
@@ -45,6 +46,10 @@ public class CardGameActivity extends AppCompatActivity {
         List<Card> terms = DataProvider.getTerms(this, selectedTopic);
 
         setupLevel(definitions, terms);
+
+        // Обработчик нажатия для кнопки возврата
+        ImageButton btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(v -> finish());
     }
 
     private void setupLevel(List<Card> definitions, List<Card> terms) {
@@ -59,7 +64,9 @@ public class CardGameActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Уровень " + (currentLevel - 1), Toast.LENGTH_SHORT).show();
 
-        // Добавляем карты на уровень
+        Collections.shuffle(definitions);
+        Collections.shuffle(terms);
+
         addCardsToGridLayout(definitionsGridLayout, definitions.subList(0, Math.min(currentLevel, definitions.size())), R.drawable.card_definition_background, "definition");
         addCardsToGridLayout(termsGridLayout, terms.subList(0, Math.min(currentLevel, terms.size())), R.drawable.card_term_background, "term");
     }
@@ -71,13 +78,12 @@ public class CardGameActivity extends AppCompatActivity {
             cardButton.setBackground(getDrawable(backgroundResource));
             cardButton.setTag(tag);
 
-            cardButton.setTextColor(ContextCompat.getColor(this, R.color.card_text_color)); // Изменение цвета текста
+            cardButton.setTextColor(ContextCompat.getColor(this, R.color.card_text_color));
 
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             params.width = 300;
             params.height = 400;
-            int marginInDp = (int) TypedValue.applyDimension(
-                    TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics());
+            int marginInDp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics());
             params.setMargins(marginInDp, marginInDp, marginInDp, marginInDp);
             cardButton.setLayoutParams(params);
             cardButton.setOnClickListener(v -> handleCardFlip(card, cardButton, backgroundResource));
@@ -92,7 +98,6 @@ public class CardGameActivity extends AppCompatActivity {
         }
 
         flipCard(card, cardButton);
-
         flippedCards.add(card);
         flippedButtons.add(cardButton);
 
@@ -106,9 +111,8 @@ public class CardGameActivity extends AppCompatActivity {
                         setCorrectBackground(flippedButtons.get(0));
                         setCorrectBackground(flippedButtons.get(1));
 
-                        // Проверка на окончание уровня
                         if (allCardsMatched()) {
-                            currentLevel += 1; // Увеличиваем количество карт
+                            currentLevel += 1;
                             setupLevel(DataProvider.getDefinitions(this, getIntent().getStringExtra("selectedTopic")),
                                     DataProvider.getTerms(this, getIntent().getStringExtra("selectedTopic")));
                         }
@@ -176,7 +180,6 @@ public class CardGameActivity extends AppCompatActivity {
 
         flipOut.setTarget(cardButton);
         flipIn.setTarget(cardButton);
-
         int backgroundResource = tag.equals("definition") ? R.drawable.card_definition_background : R.drawable.card_term_background;
         flipOut.addListener(new Animator.AnimatorListener() {
             @Override
@@ -186,7 +189,7 @@ public class CardGameActivity extends AppCompatActivity {
             public void onAnimationEnd(Animator animation) {
                 card.flip();
                 cardButton.setBackground(getDrawable(backgroundResource));
-                cardButton.setText(""); // Очищаем текст после неверного ответа
+                cardButton.setText("");
                 flipIn.start();
             }
 
@@ -205,7 +208,6 @@ public class CardGameActivity extends AppCompatActivity {
     }
 
     private void showMainMenuButton() {
-        // Показываем кнопку, когда все уровни завершены
         Button mainMenuButton = findViewById(R.id.mainMenuButton);
         mainMenuButton.setVisibility(View.VISIBLE);
         mainMenuButton.setOnClickListener(v -> finish());

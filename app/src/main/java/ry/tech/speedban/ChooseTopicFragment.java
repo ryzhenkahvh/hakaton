@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import androidx.fragment.app.Fragment;
 
 public class ChooseTopicFragment extends Fragment {
@@ -17,10 +18,19 @@ public class ChooseTopicFragment extends Fragment {
         Button btnFinancialLiteracy = view.findViewById(R.id.topic_1);
         Button btnDigitalLiteracy = view.findViewById(R.id.topic_2);
         Button btnCyberSecurity = view.findViewById(R.id.topic_3);
+        ImageButton btnBack = view.findViewById(R.id.btnBack);
 
         btnFinancialLiteracy.setOnClickListener(v -> startGameWithTopic("financial"));
         btnDigitalLiteracy.setOnClickListener(v -> startGameWithTopic("digital"));
         btnCyberSecurity.setOnClickListener(v -> startGameWithTopic("cybersecurity"));
+
+        // Обработчик нажатия для кнопки возврата в MainActivity
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            startActivity(intent);
+            // Завершаем активность, если необходимо
+            getActivity().finish();
+        });
 
         return view;
     }

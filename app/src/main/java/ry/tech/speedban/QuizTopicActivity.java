@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -26,6 +27,7 @@ public class QuizTopicActivity extends AppCompatActivity {
 
     private ListView listTopics;
     private Button buttonAddTopic;
+    private ImageButton btnBack;
     private List<String> topics;
     private Map<String, List<Question>> questionsMap;
     private ArrayAdapter<String> adapter;
@@ -39,6 +41,7 @@ public class QuizTopicActivity extends AppCompatActivity {
         gson = new Gson();
         listTopics = findViewById(R.id.list_topics);
         buttonAddTopic = findViewById(R.id.button_add_topic);
+        btnBack = findViewById(R.id.btnBack);
 
         topics = new ArrayList<>();
         questionsMap = new HashMap<>();
@@ -73,6 +76,13 @@ public class QuizTopicActivity extends AppCompatActivity {
         buttonAddTopic.setOnClickListener(v -> {
             Intent intent = new Intent(QuizTopicActivity.this, QuestionEditorActivity.class);
             startActivityForResult(intent, 1);
+        });
+
+        // Обработчик нажатия для кнопки возврата в MainActivity
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(QuizTopicActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 
