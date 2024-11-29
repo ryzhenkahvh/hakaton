@@ -8,10 +8,14 @@
     tools:context=".DetectionActivity">
 
     <TextView
+        android:paddingTop="20dp"
         android:id="@+id/tvDetections"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +25,8 @@
         android:id="@+id/detectionFrame"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:padding="30dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
