@@ -10,16 +10,12 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
-
 
 public class DetectionFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        return inflater.inflate(R.layout.fragment_detection, container, false);
         View view = inflater.inflate(R.layout.fragment_detection, container, false);
 
         Button button1 = view.findViewById(R.id.topic_1);
@@ -53,13 +49,9 @@ public class DetectionFragment extends Fragment {
         return view;
     }
 
-
     private void openDetectionsActivity(String theme) {
         Intent intent = new Intent(getActivity(), DetectionActivity.class);
         intent.putExtra("theme", theme);
         startActivity(intent);
     }
-
-
 }
-
