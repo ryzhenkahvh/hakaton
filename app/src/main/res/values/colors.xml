@@ -4,16 +4,18 @@
     <color name="white">#FFFFFFFF</color>
     <color name="firelady">#6E958E</color>
     <color name="pinky">#D4AEC8</color>
-    <color name="windBackground">#6E958E</color>
-    <color name="windBackground2">#7B7E8C</color>
-    <color name="dockStroke">#F0C5FD</color>
-    <color name="dockGradientRight">#9272529B</color>
-    <color name="dockGradientLeft">#C34A716A</color>
-    <color name="btnPressedSolid">#92768A</color>
-    <color name="btnSolid">#96706176</color>
+    <color name="windBackground">#7B7E8C</color>
+    <color name="windBackground2">#2E2E2E</color>
+    <color name="dockStroke">#929B5252</color>
+    <color name="dockGradientRight">#CF7C7C7C</color>
+    <color name="dockGradientLeft">#C3714A4B</color>
+    <color name="btnPressedSolid">#923F3F</color>
+    <color name="btnSolid">#96766161</color>
     <color name="cardBlue">#34a1eb</color>
     <color name="cardRed">#d9542b</color>
     <color name="cardStroke">#ad9e66</color>
     <color name="trueCard">#a4e675</color>
     <color name="card_text_color">#42372f</color>
+    <color name="button_stroke">#929B5252</color>
+    <color name="button_true">#8BC34A</color>
 </resources>
