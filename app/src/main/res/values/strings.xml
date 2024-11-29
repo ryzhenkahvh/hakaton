@@ -17,39 +17,38 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-        <!-- Финансовая грамотность -->
-        <!-- Термины -->
-        <string name="financial_term_1">Деньги</string>
-        <string name="financial_term_2">Кредит</string>
-        <string name="financial_term_3">Бюджет</string>
-        <!-- Определения -->
-        <string name="financial_definition_1">Эквивалент, который является измерителем стоимости товара или услуги</string>
-        <string name="financial_definition_2">Деньги, которые вы берёте в долг у банка и возвращаете их обратно с процентами</string>
-        <string name="financial_definition_3">План доходов и расходов на определённый период</string>
-
-        <!-- Цифровая грамотность -->
-        <!-- Термины -->
-        <string name="digital_term_1">Интернет</string>
-        <string name="digital_term_2">Компьютер</string>
-        <string name="digital_term_3">Социальные сети</string>
-        <!-- Определения -->
-        <string name="digital_definition_1">Всемирная сеть для обмена информацией</string>
-        <string name="digital_definition_2">Электронное устройство для обработки данных</string>
-        <string name="digital_definition_3">Онлайн-платформы для общения и обмена информацией</string>
-
-        <!-- Кибербезопасность -->
-        <!-- Термины -->
-        <string name="cybersecurity_term_1">Антивирус</string>
-        <string name="cybersecurity_term_2">Фишинг</string>
-        <string name="cybersecurity_term_3">Хакер</string>
-        <!-- Определения -->
-        <string name="cybersecurity_definition_1">Программа для защиты от вирусов</string>
-        <string name="cybersecurity_definition_2">Мошенническая попытка получить конфиденциальную информацию</string>
-        <string name="cybersecurity_definition_3">Специалист, который пытается получить несанкционированный доступ к системам</string>
-
+    <!-- Финансовая грамотность -->
+    <!-- Термины -->
+    <string name="financial_term_1">Ключевая ставка</string>
+    <string name="financial_term_2">Инфляция</string>
+    <string name="financial_term_3">Налог</string>
+    <string name="financial_term_4">Овердрафт</string>
+    <!-- Определения -->
+    <string name="financial_definition_1"> Минимальный процент, под который Главный Банк государства выдает кредиты коммерческим банкам</string>
+    <string name="financial_definition_2">Чрезмерное увеличение количества обращающихся в стране бумажных денег, вызывающее их обесценение</string>
+    <string name="financial_definition_3">Обязательный, индивидуально безвозмездный платёж, взимаемый с организаций и физических лиц </string>
+    <string name="financial_definition_4">Перерасход кредитуемых средств</string>
+    <!-- Цифровая грамотность -->
+    <!-- Термины -->
+    <string name="digital_term_1">Личные данные</string>
+    <string name="digital_term_2">СМС-Фишинг</string>
+    <string name="digital_term_3">Нейросеть</string>
+    <string name="digital_term_4">Кибермошенничество</string>
+    <!-- Определения -->
+    <string name="digital_definition_1">личные сведения о человеке, с помощью которых его можно идентифицировать</string>
+    <string name="digital_definition_2">атака при которой мобильные устройства используются как платформа для атак при помощи СМС рассылки</string>
+    <string name="digital_definition_3"> компьютерная система, которая имитирует работу нейронов в мозге человека. Она состоит из множества «нейронов», соединённых между собой и передающих информацию по цепочке. Нейросети используются во многих сферах для решения различных задач, в том числе для распознавания образов, обработки речи и прочего</string>
+    <string name="digital_definition_4">способы мошеннических действий, осуществляемых киберпреступниками в Интернете</string>
+    <!-- Кибербезопасность -->
+    <!-- Термины -->
+    <string name="cybersecurity_term_1">Пароль</string>
+    <string name="cybersecurity_term_2">Защита устройств</string>
+    <string name="cybersecurity_term_3">Антивирус</string>
+    <string name="cybersecurity_term_4">Облачное хранение</string>
+    <!-- Определения -->
+    <string name="cybersecurity_definition_1"> секретное условное слово (слова, фраза) для опознания своих караульными, а также в конспиративных организациях</string>
+    <string name="cybersecurity_definition_2">изменения соответствующих функций/объектов планирования, а также предустановленных данных при совершении графических действий</string>
+    <string name="cybersecurity_definition_3">Программа, обнаруживающая и нейтрализующая вредоносные программы</string>
+    <string name="cybersecurity_definition_4">модель облачных вычислений, которая дает возможность хранить данные и файлы в Интернете, пользуясь услугами поставщика облачныхвычислений, к которому вы подключаетесь либо через общедоступный Интернет, либо через частное сетевое соединение</string>
     <!-- Готово -->
-
-<!-- new commnet-->
-
-
 </resources>
