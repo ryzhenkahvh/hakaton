@@ -4,44 +4,47 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import ry.tech.speedban.databinding.FragmentKtBinding
 
 class Kotlin_Fragment : Fragment() {
 
-    private var _binding: FragmentKtBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var bindingClass: FragmentKtBinding
 
     private var selectedWord: String? = null
+    private var selectedWordButton: Button? = null
     private var correctMatches: Map<String, String> = emptyMap()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentKtBinding.inflate(inflater, container, false)
-        val view = binding.root
+        bindingClass = FragmentKtBinding.inflate(inflater, container, false)
 
         val theme = arguments?.getString("theme") ?: "default"
         setupGame(theme)
 
-        binding.bt1.setOnClickListener { onWordClick(binding.bt1.text.toString()) }
-        binding.bt2.setOnClickListener { onWordClick(binding.bt2.text.toString()) }
-        binding.bt3.setOnClickListener { onWordClick(binding.bt3.text.toString()) }
+        with(bindingClass) {
+            bt1.setOnClickListener { onWordClick(bt1.text.toString(), bt1) }
+            bt2.setOnClickListener { onWordClick(bt2.text.toString(), bt2) }
+            bt3.setOnClickListener { onWordClick(bt3.text.toString(), bt3) }
 
-        binding.btDefinition1.setOnClickListener { onDefinitionClick(binding.btDefinition1.text.toString()) }
-        binding.btDefinition2.setOnClickListener { onDefinitionClick(binding.btDefinition2.text.toString()) }
-        binding.btDefinition3.setOnClickListener { onDefinitionClick(binding.btDefinition3.text.toString()) }
+            btDefinition1.setOnClickListener { onDefinitionClick(btDefinition1.text.toString(), btDefinition1) }
+            btDefinition2.setOnClickListener { onDefinitionClick(btDefinition2.text.toString(), btDefinition2) }
+            btDefinition3.setOnClickListener { onDefinitionClick(btDefinition3.text.toString(), btDefinition3) }
+        }
 
-        return view
+        return bindingClass.root
     }
 
     private fun setupGame(theme: String) {
-        when (theme) {
+        val (words, definitions, matches) = when (theme) {
             getString(R.string.FLiteracy) -> {
-                setButtons(
+                Triple(
                     listOf(
                         getString(R.string.financial_term_1),
                         getString(R.string.financial_term_2),
@@ -51,16 +54,16 @@ class Kotlin_Fragment : Fragment() {
                         getString(R.string.financial_definition_1),
                         getString(R.string.financial_definition_2),
                         getString(R.string.financial_definition_3)
+                    ),
+                    mapOf(
+                        getString(R.string.financial_term_1) to getString(R.string.financial_definition_1),
+                        getString(R.string.financial_term_2) to getString(R.string.financial_definition_2),
+                        getString(R.string.financial_term_3) to getString(R.string.financial_definition_3)
                     )
-                )
-                correctMatches = mapOf(
-                    getString(R.string.financial_term_1) to getString(R.string.financial_definition_1),
-                    getString(R.string.financial_term_2) to getString(R.string.financial_definition_2),
-                    getString(R.string.financial_term_3) to getString(R.string.financial_definition_3)
                 )
             }
             getString(R.string.DLiteracy) -> {
-                setButtons(
+                Triple(
                     listOf(
                         getString(R.string.digital_term_1),
                         getString(R.string.digital_term_2),
@@ -70,16 +73,16 @@ class Kotlin_Fragment : Fragment() {
                         getString(R.string.digital_definition_1),
                         getString(R.string.digital_definition_2),
                         getString(R.string.digital_definition_3)
+                    ),
+                    mapOf(
+                        getString(R.string.digital_term_1) to getString(R.string.digital_definition_1),
+                        getString(R.string.digital_term_2) to getString(R.string.digital_definition_2),
+                        getString(R.string.digital_term_3) to getString(R.string.digital_definition_3)
                     )
-                )
-                correctMatches = mapOf(
-                    getString(R.string.digital_term_1) to getString(R.string.digital_definition_1),
-                    getString(R.string.digital_term_2) to getString(R.string.digital_definition_2),
-                    getString(R.string.digital_term_3) to getString(R.string.digital_definition_3)
                 )
             }
             getString(R.string.Cybersecurity) -> {
-                setButtons(
+                Triple(
                     listOf(
                         getString(R.string.cybersecurity_term_1),
                         getString(R.string.cybersecurity_term_2),
@@ -89,52 +92,91 @@ class Kotlin_Fragment : Fragment() {
                         getString(R.string.cybersecurity_definition_1),
                         getString(R.string.cybersecurity_definition_2),
                         getString(R.string.cybersecurity_definition_3)
+                    ),
+                    mapOf(
+                        getString(R.string.cybersecurity_term_1) to getString(R.string.cybersecurity_definition_1),
+                        getString(R.string.cybersecurity_term_2) to getString(R.string.cybersecurity_definition_2),
+                        getString(R.string.cybersecurity_term_3) to getString(R.string.cybersecurity_definition_3)
                     )
-                )
-                correctMatches = mapOf(
-                    getString(R.string.cybersecurity_term_1) to getString(R.string.cybersecurity_definition_1),
-                    getString(R.string.cybersecurity_term_2) to getString(R.string.cybersecurity_definition_2),
-                    getString(R.string.cybersecurity_term_3) to getString(R.string.cybersecurity_definition_3)
                 )
             }
             else -> {
                 Toast.makeText(context, "Неизвестная тема", Toast.LENGTH_SHORT).show()
+                return
             }
         }
+
+        setButtons(words, definitions)
+        correctMatches = matches
     }
 
     private fun setButtons(words: List<String>, definitions: List<String>) {
-        binding.bt1.text = words[0]
-        binding.bt2.text = words[1]
-        binding.bt3.text = words[2]
+        with(bindingClass) {
+            bt1.text = words[0]
+            bt2.text = words[1]
+            bt3.text = words[2]
 
-        binding.btDefinition1.text = definitions[0]
-        binding.btDefinition2.text = definitions[1]
-        binding.btDefinition3.text = definitions[2]
+            btDefinition1.text = definitions[0]
+            btDefinition2.text = definitions[1]
+            btDefinition3.text = definitions[2]
+
+            // Устанавливаем исходный фон для всех кнопок
+            val defaultBackground = ContextCompat.getDrawable(requireContext(), R.drawable.rounded_button)
+            bt1.background = defaultBackground
+            bt2.background = defaultBackground
+            bt3.background = defaultBackground
+            btDefinition1.background = defaultBackground
+            btDefinition2.background = defaultBackground
+            btDefinition3.background = defaultBackground
+        }
     }
 
-    private fun onWordClick(word: String) {
-        selectedWord = word
-        Toast.makeText(context, "Вы выбрали слово: $word", Toast.LENGTH_SHORT).show()
+    private fun onWordClick(word: String, button: Button) {
+        if (button.isClickable) {
+            selectedWord = word
+            selectedWordButton = button
+            button.background = ContextCompat.getDrawable(requireContext(), R.drawable.button_pressed)
+            showToast("Вы выбрали слово: $word", 1000)
+        }
     }
 
-    private fun onDefinitionClick(definition: String) {
+    private fun onDefinitionClick(definition: String, button: Button) {
         val word = selectedWord
-        if (word != null) {
+        val wordButton = selectedWordButton
+        if (word != null && wordButton != null) {
+            wordButton.background = ContextCompat.getDrawable(requireContext(), R.drawable.button_pressed)
+            button.background = ContextCompat.getDrawable(requireContext(), R.drawable.button_pressed)
+
             if (correctMatches[word] == definition) {
-                Toast.makeText(context, "Правильно!", Toast.LENGTH_SHORT).show()
+                showToast("Правильно!", 1500)
+                wordButton.background = ContextCompat.getDrawable(requireContext(), R.drawable.button_true)
+                button.background = ContextCompat.getDrawable(requireContext(), R.drawable.button_true)
+                wordButton.isClickable = false
+                button.isClickable = false
             } else {
-                Toast.makeText(context, "Неправильно!", Toast.LENGTH_SHORT).show()
+                showToast("Неправильно!", 1500)
+                bindingClass.root.postDelayed({
+                    wordButton.background = ContextCompat.getDrawable(requireContext(), R.drawable.rounded_button)
+                    button.background = ContextCompat.getDrawable(requireContext(), R.drawable.rounded_button)
+                }, 1500)
             }
             selectedWord = null
+            selectedWordButton = null
         } else {
-            Toast.makeText(context, "Выберите слово сначала", Toast.LENGTH_SHORT).show()
+            showToast("Выберите слово сначала", 1000)
         }
+    }
+    private fun showToast(message: String, duration: Int) {
+        val toast = Toast.makeText(context, message, Toast.LENGTH_SHORT)
+        toast.show()
+
+        bindingClass.root.postDelayed({
+            toast.cancel()
+        }, duration.toLong())
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
     }
 
     companion object {
